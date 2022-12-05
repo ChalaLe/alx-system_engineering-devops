@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -tl | uniq -u
+ls -t1 | head -n 10

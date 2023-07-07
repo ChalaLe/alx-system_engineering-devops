@@ -7,7 +7,7 @@ defaults
 
 frontend iamitsfoss-frontend
     bind *:80
-    bind *:443 ssl crt /etc/haproxy/certs/iamitsfoss.tech.pem
+    bind *:443 ssl crt /etc/haproxy/certs/Holb2023ftslt3.tech.pem
     default_backend iamitsfoss-backend
 
 backend iamitsfoss-backend

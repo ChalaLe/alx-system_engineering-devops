@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Description: Configures a ufw firewall to allow specific incoming traffic.
+
+# Install ufw if it's not already installed (Ubuntu/Debian)
+apt-get update
+apt-get install -y ufw
+
+# Enable IPv6 support in ufw (if required)
+sed -i 's/IPV6=.*/IPV6=yes/' /etc/default/ufw
+
+# Disable ufw to start with a clean slate (if it was previously enabled)
+ufw disable
+
+# Enable ufw to start configuring the firewall
+ufw enable
+
+# Set the default policy for incoming traffic to deny (block all incoming traffic)
+ufw default deny incoming
+
+# Allow outgoing traffic by setting the default policy for outgoing traffic
+# to allow
+ufw default allow outgoing
+
+# Allow incoming traffic for SSH (port 22), HTTPS (port 443), and HTTP (port 80)
+ufw allow 22/tcp
+ufw allow 443/tcp
+ufw allow 80/tcp

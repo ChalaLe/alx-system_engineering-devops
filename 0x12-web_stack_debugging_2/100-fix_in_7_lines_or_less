@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-chmod 644 /etc/nginx/nginx.conf
-sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
-sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
-(pkill apache2 || true) && nginx -s reload
+# Fixes the issue with the server
+sudo chmod 644 /etc/nginx/nginx.conf
+sudo sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
+sudo sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
+sudo pkill apache2
+sudo systemctl restart nginx

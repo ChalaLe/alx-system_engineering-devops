@@ -10,16 +10,12 @@ def get_employee_todo_progress(employee_id):
     user = requests.get(url_users).json()
     todos = requests.get(url_todos).json()
 
-    print("Response from API:", todos)  # Add this print statement to inspect the response
+    completed_tasks = [task for task in todos if task.get("completed")]
+    total_tasks = len(todos)
 
-    if todos:
-        employee_name = user.get("username")  # Check the correct key for the employee's username
-        completed_tasks = [task for task in todos if task.get("completed")]
-        total_tasks = len(todos)
-
-        print("Employee {} is done with tasks({}/{}):".format(employee_name, len(completed_tasks), total_tasks))
-        for task in completed_tasks:
-            print("\t {}".format(task.get("title")))
+    print("Employee {} is done with tasks({}/{}):".format(user.get("name"), len(completed_tasks), total_tasks))
+    for task in completed_tasks:
+        print("\t {}".format(task.get("title")))
 
 if __name__ == "__main__":
     if len(sys.argv) == 2 and sys.argv[1].isdigit():

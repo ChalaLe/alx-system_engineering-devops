@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module contains functions to query the Reddit API and count
-keywords in hot articles.
+This module contains functions to query the Reddit API and
+count keywords in hot articles.
 """
 
 import requests
@@ -24,7 +24,7 @@ def matches_words(list_posts, dict_words):
 
 def recurse(subreddit, dict_words, after=None):
     """
-    Recursive function that queries the Reddit API and searches i
+    Recursive function that queries the Reddit API and searches
     keywords in titles of posts.
 
     Args:
@@ -70,10 +70,7 @@ def count_words(subreddit, word_list):
 
     # Filter and sort the dictionary alphabetically
     sorted_words = {
-        k: v for k, v in sorted(
-            dict_words.items(),
-            key=lambda item: item[0]
-        )
+        k: v for k, v in sorted(dict_words.items(), key=lambda item: item[0])
         if v != 0
     }
 

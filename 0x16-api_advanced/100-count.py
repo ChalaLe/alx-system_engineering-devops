@@ -1,15 +1,20 @@
 #!/usr/bin/python3
 """
-Recursive function that queries the Reddit API,
-parses the title of all hot articles,
-and prints a sorted count of given keywords.
+This module contains functions to query the Reddit API and count
+keywords in hot articles.
 """
 
 import requests
 
 
 def matches_words(list_posts, dict_words):
-    """Function that counts the matches with the keywords."""
+    """
+    Counts the matches with the keywords.
+
+    Args:
+        list_posts (list): List of posts.
+        dict_words (dict): Dictionary of keywords and their counts.
+    """
     for post in list_posts:
         for word in post.get('data').get('title').split():
             for key in dict_words.keys():
@@ -18,8 +23,15 @@ def matches_words(list_posts, dict_words):
 
 
 def recurse(subreddit, dict_words, after=None):
-    """Recursive function that queries the Reddit API and
-    search keywords in titles posts."""
+    """
+    Recursive function that queries the Reddit API and searches i
+    keywords in titles of posts.
+
+    Args:
+        subreddit (str): Reddit subreddit.
+        dict_words (dict): Dictionary of keywords and their counts.
+        after (str, optional): After page identifier.
+    """
     api_header = {'User-Agent': 'Mozilla/5.0'}
     api_params = {'after': after}
     api_url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
@@ -40,9 +52,14 @@ def recurse(subreddit, dict_words, after=None):
 
 
 def count_words(subreddit, word_list):
-    """Function that queries the Reddit API, parses the title of
-    all hot articles, and prints a sorted count of given keywords
-    (case-insensitive, delimited by spaces).
+    """
+    Queries the Reddit API, parses the title of all hot articles,
+    and prints a sorted count of given keywords (case-insensitive,
+    delimited by spaces).
+
+    Args:
+        subreddit (str): Reddit subreddit.
+        word_list (list): List of keywords.
     """
     dict_words = {}
 

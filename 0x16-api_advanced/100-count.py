@@ -51,12 +51,11 @@ def count_words(subreddit, word_list):
 
     recurse(subreddit, dict_words)
 
-    # Filter and sort the dictionary in descending order
+    # Filter and sort the dictionary alphabetically
     sorted_words = {
         k: v for k, v in sorted(
             dict_words.items(),
-            key=lambda item: (item[1], item[0]),
-            reverse=True
+            key=lambda item: item[0]
         )
         if v != 0
     }

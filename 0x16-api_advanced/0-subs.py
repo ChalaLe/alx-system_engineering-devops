@@ -3,6 +3,7 @@
 
 import requests  # Import the requests library to make HTTP requests
 
+
 def number_of_subscribers(subreddit):
     """Return the total number of subscribers on a given subreddit."""
 

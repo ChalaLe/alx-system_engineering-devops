@@ -1,3 +1,4 @@
+![web stack debugging ](https://raw.githubusercontent.com/ChalaLe/alx-system_engineering-devops/master/0x19-postmortem/web%20stack%20debugging.jpg)
 
 **Issue Summary**
 

@@ -38,10 +38,10 @@ To prevent similar incidents in the future, the following corrective and prevent
   
 **Tasks to Address the Issue**
 
-*1.	Conduct a comprehensive review of firewall rules and document dependencies between services.
-*2.	Develop and implement a network configuration testing script to run regularly.
-*3.	Enhance monitoring system to provide more detailed insights into network traffic patterns.
-*4.	Establish automated network configuration backups to safeguard against accidental changes.
+* 1.	Conduct a comprehensive review of firewall rules and document dependencies between services.
+* 2.	Develop and implement a network configuration testing script to run regularly.
+* 3.	Enhance monitoring system to provide more detailed insights into network traffic patterns.
+* 4.	Establish automated network configuration backups to safeguard against accidental changes.
 
 In conclusion, the outage was caused by a misconfigured firewall rule that disrupted communication between the user 
 authentication service and the database. Through diligent investigation and quick action, the issue was resolved, 
